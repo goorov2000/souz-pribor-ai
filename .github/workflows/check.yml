@@ -1,0 +1,38 @@
+name: Application checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    name: quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OPENAI_API_KEY: ""
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: astral-sh/setup-uv@v10.3.3
+        with:
+          version: "0.12.9"
+          python-version: "3.12"
+          enable-cache: true
+      - name: Install locked dependencies
+        run: uv sync --frozen --group dev
+      - name: Install Chromium and system libraries
+        run: uv run --no-sync playwright install --with-deps chromium
+      - name: Run the same isolated check as locally
+        run: uv run --no-sync python scripts/check.py
+      - name: Save logs, source snapshot and browser traces
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: application-checks
+          path: artifacts/check/
+          retention-days: 7
+          if-no-files-found: warn

@@ -80,6 +80,7 @@ async def generate(request: Request):
 EXAMPLES = {
     'dm02': {'label': 'DM 02 · пример из задания', 'origin': 'JSON-пример из PDF тестового задания; не полный паспорт изделия.'},
     'training': {'label': 'ТД-01 · неполные данные', 'origin': 'Учебный вымышленный набор; не данные работодателя и не паспорт реального изделия.'},
+    'testo805i': {'label': 'testo 805i · реальный прибор', 'origin': 'Отдельный проверочный набор по официальной странице Testo; работодателем не предоставлен.'},
 }
 app.mount('/static', StaticFiles(directory=ROOT / 'static'), name='static')
 

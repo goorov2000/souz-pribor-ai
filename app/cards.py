@@ -23,7 +23,9 @@ def check_draft(raw, product):
     if not 1 <= len(draft.seo_title) <= 70:
         issues.append('SEO-заголовок должен содержать от 1 до 70 символов')
     if not 800 <= len(draft.seo_description) <= 1200:
-        issues.append(f'SEO-описание: сейчас {len(draft.seo_description)} символов, требуется 800–1200')
+        length = len(draft.seo_description)
+        action = f'сократи примерно на {length - 1000} символов' if length > 1200 else f'добавь примерно {1000 - length} символов'
+        issues.append(f'SEO-описание: сейчас {length} символов, требуется 800–1200; {action}, цель около 1000. Сохрани факты, убери повторные оговорки, не добавляй свойств')
     if not 3 <= len(draft.search_queries) <= 5 or any(not q.strip() for q in draft.search_queries) or len(set(draft.search_queries)) != len(draft.search_queries):
         issues.append('нужно от 3 до 5 разных непустых поисковых запросов')
     if not draft.commercial_block.strip() or len(draft.commercial_block) > 1000:
@@ -44,6 +46,14 @@ def check_draft(raw, product):
                 or fact.name.casefold() in seen):
             issues.append('факт из описания не подтверждён точной цитатой либо дублирует specs')
         seen.add(fact.name.casefold())
+    conflicts = set()
+    for fact in draft.conflicts:
+        if (fact.name not in product.specs or product.specs.get(fact.name) in (None, '')
+                or not fact.value.strip() or not fact.quote.strip()
+                or fact.quote not in (product.description or '') or fact.value not in fact.quote
+                or fact.value == str(product.specs.get(fact.name)) or fact.name in conflicts):
+            issues.append('противоречие должно ссылаться на известное поле specs и точную цитату с другим значением')
+        conflicts.add(fact.name)
     return draft, issues
 
 
@@ -51,7 +61,7 @@ def markdown(card):
     def escape(value):
         return re.sub(r'([\\`*_{}\[\]<>|])', r'\\\1', str(value)).replace('\n', ' ')
     rows = ['# ' + escape(card['seo_title']), '', '> Требует проверки человеком перед публикацией.', '',
-            '## SEO-описание', '', escape(card['seo_description']), '',
+            '## SEO-описание', '', '\n\n'.join(escape(part) for part in re.split(r'\n\s*\n', card['seo_description'])), '',
             '## Характеристики', '', '| Параметр | Значение | Источник |', '| --- | --- | --- |']
     for row in card['characteristics']:
         source = 'исходные характеристики' if row['source'] == 'specs' else ('описание: ' + (row['quote'] or ''))
@@ -68,17 +78,21 @@ def build_card(draft, product):
         if not getattr(product, name):
             missing.append(name)
     characteristics = []
-    if not product.specs:
+    conflicts = {fact.name: fact for fact in draft.conflicts}
+    if not product.specs and not draft.extracted_facts:
         missing.append('specs')
         characteristics.append({'name': 'Характеристики', 'value': 'данных нет', 'source': 'specs', 'quote': None})
     for name, value in product.specs.items():
         absent = value is None or value == ''
-        if absent:
+        if absent or name in conflicts:
             missing.append('specs.' + name)
-        characteristics.append({'name': name, 'value': 'данных нет' if absent else str(value), 'source': 'specs', 'quote': None})
+        display = 'требует уточнения: противоречие источников' if name in conflicts else 'данных нет' if absent else str(value)
+        characteristics.append({'name': name, 'value': display, 'source': 'specs', 'quote': None})
     characteristics += [{'name': f.name, 'value': f.value, 'source': 'description', 'quote': f.quote} for f in draft.extracted_facts]
     warnings = list(dict.fromkeys(draft.warnings + ['Черновик: проверьте смысл, назначение и полноту по паспорту перед публикацией.']))
-    if missing:
+    warnings += [f'Противоречие: {name}. В характеристиках: {product.specs[name]}; в описании: {fact.value}. Цитата: «{fact.quote}».'
+                 for name, fact in conflicts.items()]
+    if any(field not in {'specs.' + name for name in conflicts} for field in missing):
         warnings.append('Часть исходных данных отсутствует; свойства не восстанавливались по аналогам.')
     return {'seo_title': draft.seo_title, 'seo_description': draft.seo_description,
             'characteristics': characteristics, 'search_queries': draft.search_queries,

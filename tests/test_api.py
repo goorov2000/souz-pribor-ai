@@ -84,7 +84,7 @@ def valid_draft():
     return {'seo_title': 'Манометр DM 02 — Манотомь', 'seo_description': description * 3,
             'search_queries': ['манометр DM 02', 'манометр Манотомь', 'прибор для измерения давления'],
             'commercial_block': 'Для подбора прибора для измерения избыточного давления. Условия эксплуатации следует уточнить.',
-            'extracted_facts': [], 'warnings': []}
+            'extracted_facts': [], 'conflicts': [], 'warnings': []}
 
 
 PRODUCT = {'name': 'Манометр показывающий DM 02', 'manufacturer': 'Манотомь',
@@ -211,8 +211,12 @@ def test_local_routes_and_safe_configuration(client):
         assert health.headers['cache-control'] == 'no-store'
         assert client.get('/api/examples').status_code == 200
         examples = client.get('/api/examples').json()['examples']
-        assert len(examples) == 2
+        assert len(examples) == 3
         assert examples[1]['origin'].startswith('Учебный')
+        for example in examples:
+            saved = client.get('/api/examples/' + example['id'] + '/result')
+            assert saved.status_code == 200
+            assert saved.json()['saved_example'] is True
         assert client.get('/api/examples/../../.env.local').status_code == 404
         assert client.get('/static/../.env.local').status_code == 404
         assert client.post('/api/generate', json={'name': 'Тест'}).json()['error']['code'] == 'missing_key'
@@ -244,3 +248,45 @@ def test_attached_numeric_value_is_rejected(configured):
     response = configured.post('/api/generate', json=PRODUCT)
     assert response.status_code == 422
     assert len(calls) == 2
+
+
+def test_description_facts_are_not_marked_as_missing_characteristics(configured):
+    draft = valid_draft()
+    draft['extracted_facts'] = [{'name': 'Материал', 'value': 'сталь', 'quote': 'Материал: сталь'}]
+    install_drafts([draft])
+    response = configured.post('/api/generate', json={**PRODUCT, 'specs': {}, 'description': 'Материал: сталь'})
+    assert response.status_code == 200
+    card = response.json()['card']
+    assert 'specs' not in card['missing_fields']
+    assert card['characteristics'] == [{'name': 'Материал', 'value': 'сталь', 'source': 'description', 'quote': 'Материал: сталь'}]
+
+
+def test_conflict_requires_clarification_in_table_and_exports(configured):
+    draft = valid_draft()
+    draft['conflicts'] = [{'name': 'диапазон измерений', 'value': '0–2,5 МПа', 'quote': 'Диапазон измерений: 0–2,5 МПа.'}]
+    install_drafts([draft])
+    response = configured.post('/api/generate', json={**PRODUCT, 'description': 'Диапазон измерений: 0–2,5 МПа.'})
+    assert response.status_code == 200
+    card = response.json()['card']
+    assert 'требует уточнения' in card['characteristics'][0]['value']
+    assert 'specs.диапазон измерений' in card['missing_fields']
+    assert any('0–1,6 МПа' in warning and '0–2,5 МПа' in warning for warning in card['warnings'])
+    assert 'противоречие источников' in response.json()['exports']['markdown']
+
+
+def test_conflict_without_exact_source_quote_is_rejected(configured):
+    draft = valid_draft()
+    draft['conflicts'] = [{'name': 'диапазон измерений', 'value': '0–2,5 МПа', 'quote': 'Несуществующая цитата: 0–2,5 МПа.'}]
+    calls = install_drafts([draft])
+    response = configured.post('/api/generate', json=PRODUCT)
+    assert response.status_code == 422
+    assert len(calls) == 2
+
+
+def test_markdown_keeps_description_paragraphs(configured):
+    draft = valid_draft()
+    draft['seo_description'] = draft['seo_description'].replace('Для подбора', '\n\nДля подбора', 1)
+    install_drafts([draft])
+    response = configured.post('/api/generate', json=PRODUCT)
+    assert response.status_code == 200
+    assert '\n\nДля подбора' in response.json()['exports']['markdown']

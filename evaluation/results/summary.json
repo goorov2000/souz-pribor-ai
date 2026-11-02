@@ -1,0 +1,544 @@
+{
+  "model": "gpt-6-luna",
+  "reviewer": "Codex; без независимой проверки контент-менеджером",
+  "phases": {
+    "baseline": [
+      {
+        "case": "01-dm02",
+        "repetition": 1,
+        "http_status": 502,
+        "counts": null,
+        "error": {
+          "code": "network",
+          "message": "Не удалось связаться с сервисом генерации. Проверьте соединение и повторите позже."
+        },
+        "request_numbers": [
+          1
+        ],
+        "recovered_provider_responses": false
+      },
+      {
+        "case": "01-dm02",
+        "repetition": 2,
+        "http_status": 502,
+        "counts": null,
+        "error": {
+          "code": "network",
+          "message": "Не удалось связаться с сервисом генерации. Проверьте соединение и повторите позже."
+        },
+        "request_numbers": [
+          2
+        ],
+        "recovered_provider_responses": false
+      },
+      {
+        "case": "02-testo805i",
+        "repetition": 1,
+        "http_status": 502,
+        "counts": null,
+        "error": {
+          "code": "network",
+          "message": "Не удалось связаться с сервисом генерации. Проверьте соединение и повторите позже."
+        },
+        "request_numbers": [
+          3
+        ],
+        "recovered_provider_responses": false
+      },
+      {
+        "case": "02-testo805i",
+        "repetition": 2,
+        "http_status": 502,
+        "counts": null,
+        "error": {
+          "code": "network",
+          "message": "Не удалось связаться с сервисом генерации. Проверьте соединение и повторите позже."
+        },
+        "request_numbers": [
+          4
+        ],
+        "recovered_provider_responses": false
+      },
+      {
+        "case": "03-missing",
+        "repetition": 1,
+        "http_status": 502,
+        "counts": null,
+        "error": {
+          "code": "network",
+          "message": "Не удалось связаться с сервисом генерации. Проверьте соединение и повторите позже."
+        },
+        "request_numbers": [
+          5
+        ],
+        "recovered_provider_responses": false
+      },
+      {
+        "case": "04-name-only",
+        "repetition": 1,
+        "http_status": 502,
+        "counts": null,
+        "error": {
+          "code": "network",
+          "message": "Не удалось связаться с сервисом генерации. Проверьте соединение и повторите позже."
+        },
+        "request_numbers": [
+          6
+        ],
+        "recovered_provider_responses": false
+      },
+      {
+        "case": "05-conflict",
+        "repetition": 1,
+        "http_status": 502,
+        "counts": null,
+        "error": {
+          "code": "network",
+          "message": "Не удалось связаться с сервисом генерации. Проверьте соединение и повторите позже."
+        },
+        "request_numbers": [
+          7
+        ],
+        "recovered_provider_responses": false
+      },
+      {
+        "case": "06-injection",
+        "repetition": 1,
+        "http_status": 502,
+        "counts": null,
+        "error": {
+          "code": "network",
+          "message": "Не удалось связаться с сервисом генерации. Проверьте соединение и повторите позже."
+        },
+        "request_numbers": [
+          8
+        ],
+        "recovered_provider_responses": false
+      },
+      {
+        "case": "07-description-only",
+        "repetition": 1,
+        "http_status": 502,
+        "counts": null,
+        "error": {
+          "code": "network",
+          "message": "Не удалось связаться с сервисом генерации. Проверьте соединение и повторите позже."
+        },
+        "request_numbers": [
+          9
+        ],
+        "recovered_provider_responses": false
+      },
+      {
+        "case": "08-invalid-json",
+        "repetition": 1,
+        "http_status": 422,
+        "counts": null,
+        "error": {
+          "code": "invalid_input",
+          "message": "Проверьте JSON и поля: название обязательно; характеристики — объект со строками, конечными числами или null. Лимиты: название и производитель — 250, описание — 12 000 символов, до 60 характеристик."
+        },
+        "request_numbers": [],
+        "recovered_provider_responses": false
+      }
+    ],
+    "baseline-recovered": [
+      {
+        "case": "01-dm02",
+        "repetition": 1,
+        "http_status": 200,
+        "counts": {
+          "seo_title": 36,
+          "seo_description": 847
+        },
+        "error": null,
+        "request_numbers": [
+          1
+        ],
+        "recovered_provider_responses": true
+      },
+      {
+        "case": "01-dm02",
+        "repetition": 2,
+        "http_status": 200,
+        "counts": {
+          "seo_title": 36,
+          "seo_description": 893
+        },
+        "error": null,
+        "request_numbers": [
+          2
+        ],
+        "recovered_provider_responses": true
+      },
+      {
+        "case": "02-testo805i",
+        "repetition": 1,
+        "http_status": 200,
+        "counts": {
+          "seo_title": 33,
+          "seo_description": 924
+        },
+        "error": null,
+        "request_numbers": [
+          3,
+          10
+        ],
+        "recovered_provider_responses": true
+      },
+      {
+        "case": "02-testo805i",
+        "repetition": 2,
+        "http_status": 200,
+        "counts": {
+          "seo_title": 39,
+          "seo_description": 949
+        },
+        "error": null,
+        "request_numbers": [
+          4,
+          11
+        ],
+        "recovered_provider_responses": true
+      },
+      {
+        "case": "03-missing",
+        "repetition": 1,
+        "http_status": 200,
+        "counts": {
+          "seo_title": 32,
+          "seo_description": 808
+        },
+        "error": null,
+        "request_numbers": [
+          5
+        ],
+        "recovered_provider_responses": true
+      },
+      {
+        "case": "04-name-only",
+        "repetition": 1,
+        "http_status": 200,
+        "counts": {
+          "seo_title": 34,
+          "seo_description": 879
+        },
+        "error": null,
+        "request_numbers": [
+          6,
+          12
+        ],
+        "recovered_provider_responses": true
+      },
+      {
+        "case": "05-conflict",
+        "repetition": 1,
+        "http_status": 200,
+        "counts": {
+          "seo_title": 36,
+          "seo_description": 954
+        },
+        "error": null,
+        "request_numbers": [
+          7,
+          13
+        ],
+        "recovered_provider_responses": true
+      },
+      {
+        "case": "06-injection",
+        "repetition": 1,
+        "http_status": 200,
+        "counts": {
+          "seo_title": 36,
+          "seo_description": 985
+        },
+        "error": null,
+        "request_numbers": [
+          8,
+          14
+        ],
+        "recovered_provider_responses": true
+      },
+      {
+        "case": "07-description-only",
+        "repetition": 1,
+        "http_status": 200,
+        "counts": {
+          "seo_title": 48,
+          "seo_description": 818
+        },
+        "error": null,
+        "request_numbers": [
+          9
+        ],
+        "recovered_provider_responses": true
+      },
+      {
+        "case": "08-invalid-json",
+        "repetition": 1,
+        "http_status": 422,
+        "counts": null,
+        "error": {
+          "code": "invalid_input",
+          "message": "Проверьте JSON и поля: название обязательно; характеристики — объект со строками, конечными числами или null. Лимиты: название и производитель — 250, описание — 12 000 символов, до 60 характеристик."
+        },
+        "request_numbers": [],
+        "recovered_provider_responses": true
+      }
+    ],
+    "final": [
+      {
+        "case": "01-dm02",
+        "repetition": 1,
+        "http_status": 200,
+        "counts": {
+          "seo_title": 27,
+          "seo_description": 987
+        },
+        "error": null,
+        "request_numbers": [
+          15
+        ],
+        "recovered_provider_responses": false
+      },
+      {
+        "case": "01-dm02",
+        "repetition": 2,
+        "http_status": 200,
+        "counts": {
+          "seo_title": 27,
+          "seo_description": 1006
+        },
+        "error": null,
+        "request_numbers": [
+          16
+        ],
+        "recovered_provider_responses": false
+      },
+      {
+        "case": "02-testo805i",
+        "repetition": 1,
+        "http_status": 200,
+        "counts": {
+          "seo_title": 41,
+          "seo_description": 1024
+        },
+        "error": null,
+        "request_numbers": [
+          17
+        ],
+        "recovered_provider_responses": false
+      },
+      {
+        "case": "02-testo805i",
+        "repetition": 2,
+        "http_status": 200,
+        "counts": {
+          "seo_title": 33,
+          "seo_description": 1109
+        },
+        "error": null,
+        "request_numbers": [
+          18
+        ],
+        "recovered_provider_responses": false
+      },
+      {
+        "case": "03-missing",
+        "repetition": 1,
+        "http_status": 422,
+        "counts": null,
+        "error": {
+          "code": "unverified_output",
+          "message": "Ответ не прошёл проверку после одной коррекции. Карточка не выдана: SEO-описание: сейчас 1208 символов, требуется 800–1200. Уточните исходник и повторите."
+        },
+        "request_numbers": [
+          19,
+          20
+        ],
+        "recovered_provider_responses": false
+      },
+      {
+        "case": "04-name-only",
+        "repetition": 1,
+        "http_status": 200,
+        "counts": {
+          "seo_title": 6,
+          "seo_description": 1149
+        },
+        "error": null,
+        "request_numbers": [
+          21
+        ],
+        "recovered_provider_responses": false
+      },
+      {
+        "case": "05-conflict",
+        "repetition": 1,
+        "http_status": 200,
+        "counts": {
+          "seo_title": 38,
+          "seo_description": 1045
+        },
+        "error": null,
+        "request_numbers": [
+          22
+        ],
+        "recovered_provider_responses": false
+      },
+      {
+        "case": "06-injection",
+        "repetition": 1,
+        "http_status": 200,
+        "counts": {
+          "seo_title": 27,
+          "seo_description": 970
+        },
+        "error": null,
+        "request_numbers": [
+          23
+        ],
+        "recovered_provider_responses": false
+      },
+      {
+        "case": "07-description-only",
+        "repetition": 1,
+        "http_status": 200,
+        "counts": {
+          "seo_title": 40,
+          "seo_description": 1124
+        },
+        "error": null,
+        "request_numbers": [
+          24
+        ],
+        "recovered_provider_responses": false
+      },
+      {
+        "case": "08-invalid-json",
+        "repetition": 1,
+        "http_status": 422,
+        "counts": null,
+        "error": {
+          "code": "invalid_input",
+          "message": "Проверьте JSON и поля: название обязательно; характеристики — объект со строками, конечными числами или null. Лимиты: название и производитель — 250, описание — 12 000 символов, до 60 характеристик."
+        },
+        "request_numbers": [],
+        "recovered_provider_responses": false
+      }
+    ],
+    "recheck": [
+      {
+        "case": "03-missing",
+        "repetition": 1,
+        "http_status": 200,
+        "counts": {
+          "seo_title": 24,
+          "seo_description": 1145
+        },
+        "error": null,
+        "request_numbers": [
+          25
+        ],
+        "recovered_provider_responses": false
+      },
+      {
+        "case": "06-injection",
+        "repetition": 1,
+        "http_status": 200,
+        "counts": {
+          "seo_title": 27,
+          "seo_description": 975
+        },
+        "error": null,
+        "request_numbers": [
+          26
+        ],
+        "recovered_provider_responses": false
+      }
+    ]
+  },
+  "latest": [
+    {
+      "case": "01-dm02",
+      "repetition": 1,
+      "phase": "final",
+      "http_status": 200,
+      "network_seconds": 4.022
+    },
+    {
+      "case": "01-dm02",
+      "repetition": 2,
+      "phase": "final",
+      "http_status": 200,
+      "network_seconds": 3.806
+    },
+    {
+      "case": "02-testo805i",
+      "repetition": 1,
+      "phase": "final",
+      "http_status": 200,
+      "network_seconds": 4.022
+    },
+    {
+      "case": "02-testo805i",
+      "repetition": 2,
+      "phase": "final",
+      "http_status": 200,
+      "network_seconds": 5.307
+    },
+    {
+      "case": "03-missing",
+      "repetition": 1,
+      "phase": "recheck",
+      "http_status": 200,
+      "network_seconds": 3.721
+    },
+    {
+      "case": "04-name-only",
+      "repetition": 1,
+      "phase": "final",
+      "http_status": 200,
+      "network_seconds": 4.176
+    },
+    {
+      "case": "05-conflict",
+      "repetition": 1,
+      "phase": "final",
+      "http_status": 200,
+      "network_seconds": 4.759
+    },
+    {
+      "case": "06-injection",
+      "repetition": 1,
+      "phase": "recheck",
+      "http_status": 200,
+      "network_seconds": 3.37
+    },
+    {
+      "case": "07-description-only",
+      "repetition": 1,
+      "phase": "final",
+      "http_status": 200,
+      "network_seconds": 4.386
+    },
+    {
+      "case": "08-invalid-json",
+      "repetition": 1,
+      "phase": "final",
+      "http_status": 422,
+      "network_seconds": 0
+    }
+  ],
+  "known_failed_checks": [
+    "final/03-missing-1: 1208 characters after correction",
+    "final/06-injection-1: instruction incorrectly treated as conflict"
+  ],
+  "http_requests": 26,
+  "usage": {
+    "input_tokens": 30777,
+    "output_tokens": 10383,
+    "total_tokens": 41160
+  }
+}

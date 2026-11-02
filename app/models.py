@@ -53,4 +53,5 @@ class ModelDraft(BaseModel):
     search_queries: list[str]
     commercial_block: str
     extracted_facts: list[ExtractedFact]
+    conflicts: list[ExtractedFact]
     warnings: list[str]

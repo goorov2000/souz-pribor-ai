@@ -110,7 +110,7 @@ function render(result, saved = false, origin = '') {
   const queries = node('div', 'queries'); card.search_queries.forEach(query => queries.append(node('span', 'query', query))); section('Поисковые запросы').append(queries);
   section('Для менеджера').append(node('p', 'commercial', card.commercial_block));
   const warning = node('div', 'warnings'); warning.append(node('p', '', 'Требует проверки перед публикацией'));
-  const list = node('ul'); card.missing_fields.forEach(value => list.append(node('li', '', fieldLabel(value) + ': данных нет'))); card.warnings.forEach(value => list.append(node('li', '', value))); warning.append(list); $('preview').append(warning);
+  const list = node('ul'); card.missing_fields.forEach(value => list.append(node('li', '', fieldLabel(value) + ': требуется уточнение'))); card.warnings.forEach(value => list.append(node('li', '', value))); warning.append(list); $('preview').append(warning);
   text('json-output', result.exports.json); text('markdown-output', result.exports.markdown);
   text('result-meta', `${saved ? 'Сохранённый пример' : 'Живая генерация'} · ${result.metadata.model} · Попыток: ${result.metadata.attempts} · Токенов: ${result.metadata.usage.total_tokens}. Формат и обозначения проверены; смысл проверяет редактор.`);
   text('result-badge', saved ? 'Сохранённый пример' : 'Черновик готов'); $('result-badge').classList.add('ready');
@@ -121,16 +121,22 @@ function render(result, saved = false, origin = '') {
 $('product-form').addEventListener('submit', async event => {
   event.preventDefault(); if (state.loading) return;
   let product; try { if (!$('form-panel').classList.contains('hidden') && !syncFromForm()) return; product = parseSource(); inputError(); } catch (error) { inputError(error.message); return; }
-  const revision = state.revision; state.loading = true; $('generate').disabled = true; text('generate-label', 'Создаём карточку…');
+  const revision = state.revision; state.loading = true; updateExampleControls(); $('generate').disabled = true; text('generate-label', 'Создаём карточку…');
   document.querySelector('.output-panel').setAttribute('aria-busy', 'true'); show('error-banner', false); announce('Генерация выполняется. Обычно это занимает несколько секунд.');
   try {
     const result = await api('/api/generate', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(product)});
     render(result); if (state.revision !== revision) { show('stale-banner'); text('result-badge', 'Устарел'); $('result-badge').classList.remove('ready'); }
   } catch (error) { text('error-banner', error.message); show('error-banner'); announce('Генерация не завершена. ' + error.message); }
-  finally { state.loading = false; $('generate').disabled = false; text('generate-label', 'Создать карточку'); document.querySelector('.output-panel').setAttribute('aria-busy', 'false'); }
+  finally { state.loading = false; updateExampleControls(); $('generate').disabled = false; text('generate-label', 'Создать карточку'); document.querySelector('.output-panel').setAttribute('aria-busy', 'false'); }
 });
 function selectedExample() { return state.examples.find(example => example.id === $('example-select').value); }
-$('example-select').addEventListener('change', () => { const example = selectedExample(); text('example-origin', example?.origin || 'Выберите пример. Просмотр не вызывает модель.'); });
+function updateExampleControls() {
+  const example = selectedExample();
+  $('load-example').disabled = !example || state.loading;
+  $('show-example').disabled = !example || state.loading;
+  text('example-origin', (example?.origin || 'Выберите пример из списка.') + ' Просмотр сохранённого результата не вызывает модель.');
+}
+$('example-select').addEventListener('change', updateExampleControls);
 function loadExample(example) { fillForm(example.input); $('json-input').value = JSON.stringify(example.input, null, 2); inputError(); markChanged(); }
 $('load-example').addEventListener('click', () => { const example = selectedExample(); if (example) loadExample(example); else inputError('Сначала выберите пример.'); });
 $('show-example').addEventListener('click', async () => {
@@ -157,6 +163,15 @@ async function init() {
   const results = await Promise.allSettled([api('/api/health'), api('/api/examples')]);
   if (results[0].status === 'fulfilled') { const health = results[0].value; if (!health.ready) { text('config-status', health.message); show('config-status'); } }
   else { text('config-status', 'Нет соединения с сервером. Введённые данные останутся на странице.'); show('config-status'); }
-  if (results[1].status === 'fulfilled') { state.examples = results[1].value.examples; state.examples.forEach(example => { const option = node('option', '', example.label); option.value = example.id; $('example-select').append(option); }); }
+  if (results[1].status === 'fulfilled') {
+    state.examples = results[1].value.examples;
+    $('example-select').options[0].textContent = 'Выберите набор данных';
+    state.examples.forEach(example => { const option = node('option', '', example.label); option.value = example.id; $('example-select').append(option); });
+    if (state.examples.length) {
+      $('example-select').value = state.examples[0].id;
+      $('example-select').disabled = false;
+      updateExampleControls();
+    } else { text('example-origin', 'Сохранённые примеры пока недоступны. Можно заполнить данные вручную.'); }
+  } else { text('example-origin', 'Не удалось загрузить примеры. Проверьте, что сервер запущен, и обновите страницу.'); }
 }
 init();

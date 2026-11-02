@@ -1,0 +1,13 @@
+[project]
+name = "pribor"
+version = "0.1.0"
+description = "Проверяемые черновики карточек приборов"
+requires-python = ">=3.11"
+dependencies = ["fastapi>=0.115,<1", "httpx>=0.28,<1", "pydantic>=2.10,<3", "uvicorn>=0.34,<1", "python-dotenv>=1,<2"]
+
+[dependency-groups]
+dev = ["pytest>=8,<10"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

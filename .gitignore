@@ -8,5 +8,7 @@ __pycache__/
 .venv/
 .DS_Store
 artifacts/
+/logo.svg
+/СОЮЗ-ПРИБОР*.html
 .autopilot/serve.*
 Тестовое задание_ AI-разработчик.pdf

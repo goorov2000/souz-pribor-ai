@@ -1,0 +1,12 @@
+{
+  "package": "@fontsource-variable/inter",
+  "version": "5.3.0",
+  "source": "https://registry.npmjs.org/@fontsource-variable/inter/-/inter-5.3.0.tgz",
+  "archive_sha256": "d26710dd38e7217484a1d47ee76c024977ec550548876f26d06ed1844af09a14",
+  "license": "OFL-1.1",
+  "subsets": [
+    "latin",
+    "cyrillic"
+  ],
+  "design_source": "VoltAgent/awesome-design-md/design-md/linear.app/DESIGN.md"
+}

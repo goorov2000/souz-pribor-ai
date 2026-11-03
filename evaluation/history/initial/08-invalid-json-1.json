@@ -1,0 +1,23 @@
+{
+  "case": "08-invalid-json",
+  "repetition": 1,
+  "phase": "final",
+  "http_status": 422,
+  "network_seconds": 0,
+  "source_sha256": {
+    "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cards.py": "33bf48add1081d735dc89219ef6be1ab15c208b66ac1cff3e17c8c1e8997f965",
+    "config.py": "a216de074fcaeaa2d663d8b1134336195dbb1d96a9580b0975411a61d3a48b61",
+    "main.py": "0ce0d03e68987a713ad0e612492873fe2ee273e918358aa3cd72371392eacb35",
+    "models.py": "6212538c36143452ccf8efcd079e3c8ecd61ae539b9425dbb0da179222c267ec",
+    "prompts.py": "a8b2155ee00fd196d898c500734b93f5a6afaafd9147996e81c205b33e8aa4cd",
+    "provider.py": "c95bf4425d00d956e6ba546f17011c2048af29ca727fe6293c43df2d6463a6cb"
+  },
+  "result": {
+    "error": {
+      "code": "invalid_input",
+      "message": "Проверьте JSON и поля: название обязательно; характеристики — объект со строками, конечными числами или null. Лимиты: название и производитель — 250, описание — 12 000 символов, до 60 характеристик."
+    }
+  },
+  "note": "Markdown rendered offline again after preserving paragraph breaks; model content unchanged."
+}

@@ -1,54 +1,56 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-theme="light">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Прибор — редактор товарных карточек</title>
+  <meta name="color-scheme" content="light">
+  <title>Прибор — помощник контент-менеджера СОЮЗ-ПРИБОР</title>
   <link rel="stylesheet" href="/static/style.css"><script src="/static/app.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#workspace">К рабочей области</a>
-<header class="topbar">
-  <a class="brand" href="/" aria-label="Прибор, главная"><svg aria-hidden="true" viewBox="0 0 42 32"><path d="M5 27a17 17 0 0 1 32 0M21 8v4M9 15l3 3M33 15l-3 3M21 27l9-10"/><circle cx="21" cy="27" r="2"/></svg><span>ПРИБОР<span class="brand-sub">инструменты редактора</span></span></a>
-  <span class="local-label"><span class="dot"></span>Локальное рабочее место</span>
-</header>
+<header class="topbar"><div class="header-inner"><a class="brand" href="/" aria-label="СОЮЗ-ПРИБОР, главная"><img src="/static/brand/souz-pribor.svg" width="270" height="67" alt="СОЮЗ-ПРИБОР"></a><div class="app-context">Помощник контент-менеджера</div></div></header>
 <main id="workspace">
-  <section class="intro"><div><div class="eyebrow">Технический каталог / Карточка товара</div><h1>От исходных данных<br>к проверяемому черновику.</h1><p>Загрузите сведения о приборе. Получите описание, характеристики<br class="desktop-break"> и поисковые запросы для проверки и публикации.</p></div><div class="intro-note"><span class="note-number">01 → 02</span><p>Факты — из вашего источника.<br>Решение о публикации — за вами.</p></div></section>
+  <section class="intro"><div><h1>Подготовка карточки товара</h1><p>Соберите характеристики, описание и аргументы для продажи в одном черновике.</p></div><div id="examples-section" class="examples"><label for="example-select">Начать с примера</label><div class="example-controls"><select id="example-select" disabled aria-describedby="example-origin"><option value="">Загружаем примеры…</option></select><button id="load-example" type="button" class="secondary" disabled>Вставить</button><button id="show-example" type="button" class="secondary" aria-label="Посмотреть сохранённый результат" disabled>Готовый результат</button></div><details id="example-notes" class="example-notes"><summary>Об источнике примера</summary><p id="example-origin" class="help" role="status">Загружаем примеры. Просмотр сохранённого результата не вызывает модель.</p></details></div></section>
   <div id="config-status" class="notice hidden" role="status"></div>
   <div class="workspace-grid">
     <section class="panel input-panel" aria-labelledby="input-heading">
-      <div class="panel-heading"><div><span class="step">01</span><h2 id="input-heading">Исходные данные</h2></div><span class="micro">Один прибор</span></div>
-      <div class="examples"><label for="example-select">Начать с примера</label><div class="example-controls"><select id="example-select" disabled aria-describedby="example-origin"><option value="">Загружаем примеры…</option></select><button id="load-example" type="button" class="secondary" disabled>Вставить</button></div><button id="show-example" type="button" class="text-button" disabled>Посмотреть сохранённый результат ↗</button><p id="example-origin" class="help" role="status">Загружаем примеры. Просмотр сохранённого результата не вызывает модель.</p></div>
+      <div class="panel-heading"><h2 id="input-heading">Данные товара</h2><span id="source-status" class="micro">Один прибор</span></div>
+
       <div class="tabs" role="tablist" aria-label="Способ ввода"><button id="form-tab" class="tab active" role="tab" aria-selected="true" aria-controls="form-panel" data-input="form" type="button">Форма</button><button id="json-tab" class="tab" role="tab" aria-selected="false" tabindex="-1" aria-controls="json-panel" data-input="json" type="button">JSON</button></div>
       <form id="product-form" novalidate>
         <div id="form-panel" role="tabpanel" aria-labelledby="form-tab">
-          <label for="name">Название прибора <span class="required">*</span></label><input id="name" name="name" maxlength="250" placeholder="Например, манометр показывающий DM 02" required autocomplete="off">
-          <label for="manufacturer">Производитель <span class="optional">необязательно</span></label><input id="manufacturer" name="manufacturer" maxlength="250" placeholder="Как в паспорте изделия" autocomplete="off">
+          <div class="identity-grid"><div class="field"><label for="name">Название прибора <span class="required" aria-hidden="true">*</span></label><input id="name" name="name" maxlength="250" placeholder="Например, манометр DM 02" required autocomplete="off" aria-describedby="name-help"><span id="name-help" class="sr-only">Обязательное поле</span></div><div class="field"><label for="manufacturer">Производитель</label><input id="manufacturer" name="manufacturer" maxlength="250" placeholder="Если известен" autocomplete="off"></div></div>
           <div class="field-title"><label>Характеристики</label><span class="optional">значения и единицы без изменений</span></div>
           <div class="spec-head" aria-hidden="true"><span>Параметр</span><span>Значение</span></div><div id="spec-rows"></div><button id="add-spec" type="button" class="text-button add">＋ Добавить характеристику</button>
-          <label for="description">Описание или фрагмент паспорта <span class="optional">необязательно</span></label><textarea id="description" rows="5" maxlength="12000" placeholder="Назначение прибора и подтверждённые сведения из документации"></textarea><p class="help">Пустые поля допустимы: в карточке появится «данных нет».</p>
+          <label for="description">Описание или фрагмент паспорта</label><textarea id="description" rows="3" maxlength="12000" placeholder="Вставьте назначение, характеристики, функции, условия эксплуатации и комплект поставки" aria-describedby="source-help"></textarea><p id="source-help" class="help">Вставьте весь доступный текст: сервис разложит факты по полям и покажет, чем дополнить карточку. Неизвестные значения оставьте пустыми.</p>
+          <label class="enrich-option" for="enrich"><input id="enrich" type="checkbox" checked> Найти дополнительные данные в документации производителя</label><p class="help">По точной модели и исполнению. Новые характеристики будут со ссылками на источники. Поиск увеличивает время подготовки.</p>
         </div>
-        <div id="json-panel" class="hidden" role="tabpanel" aria-labelledby="json-tab"><label for="json-input">Данные товара в JSON</label><textarea id="json-input" spellcheck="false" rows="23" class="code"></textarea><p class="help">Поля: name, manufacturer, specs, description. Значение характеристики: строка, число или null.</p></div>
+        <div id="json-panel" class="hidden" role="tabpanel" aria-labelledby="json-tab"><label for="json-input">Данные товара в JSON</label><textarea id="json-input" spellcheck="false" rows="23" class="code"></textarea><p class="help">Поля: name, manufacturer, specs, description. Для поиска в документации добавьте enrich: true. Значение характеристики: строка, число или null.</p></div>
         <p id="input-error" class="inline-error hidden" role="alert"></p>
-        <div class="generate-footer"><button id="generate" class="primary" type="submit"><span id="generate-label">Создать карточку</span><span aria-hidden="true">→</span></button><span class="help">Черновик для проверки редактором</span></div>
+        <div class="generate-footer"><button id="generate" class="primary" type="submit"><span id="generate-label">Создать карточку</span><span aria-hidden="true">↗</span></button><span class="shortcut" aria-hidden="true">Ctrl / ⌘ + Enter</span></div>
+        <p id="draft-status" class="help draft-status" role="status">Работа сохраняется в этой вкладке.</p>
       </form>
     </section>
     <section class="panel output-panel" aria-labelledby="output-heading" aria-busy="false">
-      <div class="panel-heading"><div><span class="step">02</span><h2 id="output-heading">Карточка товара</h2></div><span id="result-badge" class="badge">Ожидает данных</span></div>
+      <div class="panel-heading"><h2 id="output-heading">Черновик карточки</h2><span id="result-badge" class="badge">Ожидает данных</span></div>
       <div id="live-status" class="sr-only" role="status" aria-live="polite"></div>
       <div id="error-banner" class="notice error hidden" role="alert"></div>
       <div id="stale-banner" class="notice hidden">Исходные данные изменены. Этот результат устарел — создайте карточку заново.</div>
-      <div id="saved-banner" class="notice hidden"></div>
-      <div id="empty-state" class="empty-state"><div class="empty-instrument" aria-hidden="true"><svg viewBox="0 0 120 100"><path d="M15 80a45 45 0 0 1 90 0M25 80a35 35 0 0 1 70 0M60 24v9M30 38l6 7M90 38l-6 7M60 80l23-28"/><circle cx="60" cy="80" r="5"/></svg></div><h3>Здесь появится черновик</h3><p>Заполните название и известные параметры<br>или начните с одного из примеров.</p><div class="empty-steps"><span>SEO-текст</span><span>Характеристики</span><span>Запросы</span></div></div>
-      <div id="result" class="hidden">
+      <details id="saved-banner" class="saved-info hidden"><summary>Открыт сохранённый результат</summary><p id="saved-origin"></p></details>
+      <div id="needs-data" class="source-guidance hidden" role="status" aria-live="polite"><span class="guidance-label">Следующий шаг</span><h3>Добавьте сведения о приборе</h3><p id="needs-data-message"></p><p id="known-summary" class="hidden"></p><ul id="needs-data-list"></ul><button id="complete-source" class="secondary" type="button">Дополнить исходные данные ↖</button><p id="needs-data-meta" class="help"></p></div>
+      <div id="loading-state" class="loading-state hidden" role="status"><span class="spinner" aria-hidden="true"></span><div><strong>Готовим черновик</strong><p>Собираем текст и проверяем формат. Исходные данные можно продолжать редактировать.</p></div></div>
+      <div id="empty-state" class="empty-state"><div class="document-icon" aria-hidden="true"><svg viewBox="0 0 40 48"><path d="M8 2h17l9 9v34H8zM25 2v10h9M14 22h14M14 29h14M14 36h9"/></svg></div><h3>Черновик появится здесь</h3><p>Добавьте данные товара и нажмите<br>«Создать карточку».</p><span>Или откройте готовый результат из примеров.</span></div>
+      <details id="result" class="hidden" open>
+        <summary id="previous-summary" class="hidden">Предыдущая карточка сохранена · открыть</summary>
         <div class="result-toolbar"><div class="tabs" role="tablist" aria-label="Формат результата"><button id="preview-tab" class="tab active" role="tab" aria-selected="true" aria-controls="preview-panel" data-output="preview" type="button">Просмотр</button><button id="output-json-tab" class="tab" role="tab" aria-selected="false" tabindex="-1" aria-controls="output-json-panel" data-output="json" type="button">JSON</button><button id="markdown-tab" class="tab" role="tab" aria-selected="false" tabindex="-1" aria-controls="markdown-panel" data-output="markdown" type="button">Markdown</button></div><button id="copy" class="secondary" type="button">Копировать</button></div>
         <div id="preview-panel" role="tabpanel" aria-labelledby="preview-tab"><div id="preview" class="preview"></div></div>
         <div id="output-json-panel" class="hidden" role="tabpanel" aria-labelledby="output-json-tab"><pre id="json-output" class="code export"></pre></div>
         <div id="markdown-panel" class="hidden" role="tabpanel" aria-labelledby="markdown-tab"><pre id="markdown-output" class="code export"></pre></div>
-        <div class="result-footer"><p id="result-meta" class="help"></p><div><button id="download-json" class="text-button" type="button">Скачать JSON ↓</button><button id="download-markdown" class="text-button" type="button">Markdown ↓</button></div></div>
-      </div>
+        <div class="result-footer"><div><button id="download-json" class="text-button" type="button">Скачать JSON ↓</button><button id="download-markdown" class="text-button" type="button">Markdown ↓</button></div><details><summary>О генерации</summary><p id="result-meta" class="help"></p></details></div>
+      </details>
     </section>
   </div>
-  <footer class="page-footer"><span>ПРИБОР / Локальный прототип</span><p>Проверка структуры и обозначений помогает заметить ошибки.<br>Смысл, полноту и применимость сверяйте с паспортом перед публикацией.</p></footer>
+  <footer class="page-footer">Перед публикацией сверьте черновик с документацией прибора.</footer>
 </main>
 </body>
 </html>

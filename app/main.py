@@ -11,6 +11,7 @@ from app.config import ROOT, Settings
 from app.models import ProductInput
 from app.provider import GenerationError
 from app.cards import generate_card
+from app.grounding import has_source
 
 app = FastAPI(title='Прибор', docs_url=None, redoc_url=None)
 app.state.settings = Settings()
@@ -65,6 +66,12 @@ async def generate(request: Request):
         product = ProductInput.model_validate_json(await request.body())
     except ValidationError:
         return failure('invalid_input', 'Проверьте JSON и поля: название обязательно; характеристики — объект со строками, конечными числами или null. Лимиты: название и производитель — 250, описание — 12 000 символов, до 60 характеристик.')
+    if not has_source(product) and (not product.enrich or not product.manufacturer):
+        return {'status': 'needs_data', 'api_called': False,
+                'message': 'Добавьте описание из паспорта или известные характеристики. По одному названию нельзя подготовить полезную карточку без догадок.',
+                'missing_fields': (['manufacturer'] if not product.manufacturer else []) + ['description', 'specs'],
+                'next_steps': ['Вставьте назначение и технические сведения из документации.',
+                               'Укажите известные параметры с исходными значениями и единицами.']}
     if not app.state.settings.api_key:
         return failure('missing_key', 'На сервере не задан OPENAI_API_KEY. Добавьте ключ в .env.local и перезапустите приложение.', 503)
     if not app.state.generation_lock.acquire(blocking=False):
@@ -81,6 +88,7 @@ EXAMPLES = {
     'dm02': {'label': 'DM 02 · пример из задания', 'origin': 'JSON-пример из PDF тестового задания; не полный паспорт изделия.'},
     'training': {'label': 'ТД-01 · неполные данные', 'origin': 'Учебный вымышленный набор; не данные работодателя и не паспорт реального изделия.'},
     'testo805i': {'label': 'testo 805i · реальный прибор', 'origin': 'Отдельный проверочный набор по официальной странице Testo; работодателем не предоставлен.'},
+    'testo805i-enriched': {'label': 'testo 805i · обогащение из документации', 'origin': 'Название и производитель без характеристик на входе; значения найдены в официальной документации. Дополнительный пример расширения, не товар работодателя.'},
 }
 app.mount('/static', StaticFiles(directory=ROOT / 'static'), name='static')
 

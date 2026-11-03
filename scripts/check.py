@@ -15,8 +15,8 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_DIRS = ('app', 'static', 'tests', 'docs', 'examples', 'evaluation', 'scripts', '.github')
-SOURCE_FILES = ('pyproject.toml', 'uv.lock', 'README.md')
-SUFFIXES = {'.py', '.js', '.css', '.html', '.json', '.md', '.txt', '.yml', '.yaml'}
+SOURCE_FILES = ('pyproject.toml', 'uv.lock', 'README.md', 'DESIGN.md')
+SUFFIXES = {'.py', '.js', '.css', '.html', '.json', '.md', '.txt', '.yml', '.yaml', '.woff2', '.svg', '.png'}
 
 
 def snapshot(destination, artifact):

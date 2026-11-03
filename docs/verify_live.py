@@ -34,7 +34,7 @@ async def main():
             return await super().handle_async_request(request)
     identifiers = sys.argv[1:] or ['dm02', 'training']
     for identifier in identifiers:
-        if identifier not in ('dm02', 'training'):
+        if identifier not in ('dm02', 'training', 'testo805i'):
             print('Неизвестный пример.'); return 1
         product = ProductInput.model_validate_json((ROOT / 'examples' / f'{identifier}.input.json').read_text())
         before = ledger['requests']
@@ -42,11 +42,12 @@ async def main():
         try:
             result = await generate_card(product, settings, CountedTransport())
             result['metadata']['provenance'] = {'kind': 'live-api', 'generated_at': record['at'],
-                'input': f'{identifier}.input.json', 'origin': 'JSON из PDF тестового задания' if identifier == 'dm02' else 'Учебный вымышленный набор; не паспорт реального изделия'}
+                'input': f'{identifier}.input.json', 'origin': {'dm02': 'JSON из PDF тестового задания', 'training': 'Учебный вымышленный набор; не паспорт реального изделия', 'testo805i': 'Отдельно подобранный реальный прибор по официальной странице производителя'}[identifier]}
             (ROOT / 'examples' / f'{identifier}.result.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n')
-            (ROOT / 'examples' / f'{identifier}.result.md').write_text(result['exports']['markdown'])
-            record.update({'status': 'verified', 'usage': result['metadata']['usage'], 'counts': result['counts']})
-            print(identifier, 'verified', result['counts'], 'attempts', result['metadata']['attempts'], 'usage', result['metadata']['usage'])
+            rendered = result['exports']['markdown'] if result['status'] == 'draft' else '# Нужны дополнительные сведения\n\n' + result['summary'] + '\n'
+            (ROOT / 'examples' / f'{identifier}.result.md').write_text(rendered)
+            record.update({'status': result['status'], 'usage': result['metadata']['usage'], 'counts': result.get('counts')})
+            print(identifier, result['status'], result.get('counts'), 'attempts', result['metadata']['attempts'], 'usage', result['metadata']['usage'])
         except GenerationError as error:
             record.update({'status': 'failed', 'error_code': error.code, 'usage': getattr(error, 'usage', None)})
             print(identifier, 'failed', error.code, error.message)

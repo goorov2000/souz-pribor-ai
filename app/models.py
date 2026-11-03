@@ -1,6 +1,6 @@
 """Public input and provider output contracts."""
 import math
-from typing import Annotated
+from typing import Annotated, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
@@ -11,6 +11,7 @@ class ProductInput(BaseModel):
     manufacturer: Annotated[str, Field(max_length=250)] | None = None
     specs: dict[str, str | int | float | None] = Field(default_factory=dict)
     description: Annotated[str, Field(max_length=12000)] | None = None
+    enrich: bool = False
 
     @field_validator('name', 'manufacturer', 'description', mode='before')
     @classmethod
@@ -46,12 +47,18 @@ class ExtractedFact(BaseModel):
     quote: str
 
 
+class SourcedFact(ExtractedFact):
+    source: Literal['name', 'description']
+
+
 class ModelDraft(BaseModel):
     model_config = ConfigDict(extra='forbid')
+    status: Literal['draft', 'needs_data']
     seo_title: str
     seo_description: str
     search_queries: list[str]
     commercial_block: str
-    extracted_facts: list[ExtractedFact]
+    extracted_facts: list[SourcedFact]
+    missing_characteristics: list[str]
     conflicts: list[ExtractedFact]
     warnings: list[str]

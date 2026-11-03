@@ -41,6 +41,9 @@ class ClientRegressionTests(unittest.TestCase):
             files = {'/': ('static/index.html', 'text/html'),
                      '/static/app.js': ('static/app.js', 'text/javascript'),
                      '/static/style.css': ('static/style.css', 'text/css')}
+            files['/static/brand/souz-pribor.svg'] = ('static/brand/souz-pribor.svg', 'image/svg+xml')
+            files.update({'/static/vendor/' + file.name: (str(file.relative_to(ROOT)), 'font/woff2' if file.suffix == '.woff2' else 'text/css')
+                          for file in (ROOT / 'static/vendor').iterdir() if file.suffix in ('.woff2', '.css')})
             if path in files:
                 name, media_type = files[path]
                 route.fulfill(path=str(ROOT / name), content_type=media_type)
@@ -74,17 +77,13 @@ class ClientRegressionTests(unittest.TestCase):
         self.assertEqual(self.saved_requests, ['dm02'])
         self.assertEqual(self.requests, [])
 
-    def test_selected_saved_example_and_exports_open(self):
+    def test_saved_sparse_example_shows_guidance_instead_of_a_long_card(self):
         self.page.locator('#example-select').select_option('training')
         self.page.locator('#show-example').click()
-        expect(self.page.locator('#result')).to_be_visible()
-        expect(self.page.locator('#preview')).to_contain_text('данных нет')
-        self.page.locator('[data-output="json"]').click()
-        expect(self.page.locator('#json-output')).to_be_visible()
-        self.assertEqual(json.loads(self.page.locator('#json-output').inner_text())['missing_fields'],
-                         ['manufacturer', 'specs.питание', 'specs.интерфейс'])
-        self.page.locator('[data-output="markdown"]').click()
-        expect(self.page.locator('#markdown-output')).to_contain_text('Характеристики')
+        expect(self.page.locator('#needs-data')).to_be_visible()
+        expect(self.page.locator('#known-summary')).to_contain_text('−20…+80 °C')
+        expect(self.page.locator('#needs-data-meta')).to_contain_text('Новая генерация не запускалась')
+        expect(self.page.locator('#result')).to_be_hidden()
         self.assertEqual(self.saved_requests, ['training'])
         self.assertEqual(self.requests, [])
 
@@ -93,6 +92,7 @@ class ClientRegressionTests(unittest.TestCase):
             status=503, json={'error': {'message': 'Примеры недоступны.'}}))
         self.page.reload()
         expect(self.page.locator('#example-origin')).to_contain_text('Не удалось загрузить примеры')
+        expect(self.page.locator('#example-origin')).to_be_visible()
         expect(self.page.locator('#show-example')).to_be_disabled()
         expect(self.page.locator('#load-example')).to_be_disabled()
         expect(self.page.locator('#name')).to_be_editable()
@@ -157,6 +157,85 @@ class ClientRegressionTests(unittest.TestCase):
         self.assertEqual(len(self.requests), 1)
         self.assertEqual(self.requests[0]['specs'], specs)
         self.assertEqual(json.loads(self.page.locator('#json-input').input_value())['specs'], specs)
+
+    def test_seo_block_copy_contains_only_the_description(self):
+        self.page.context.grant_permissions(['clipboard-read', 'clipboard-write'])
+        self.page.locator('#show-example').click()
+        expect(self.page.locator('#result')).to_be_visible()
+        self.page.get_by_role('button', name='Копировать SEO-описание', exact=True).click()
+        clipboard = self.page.evaluate('navigator.clipboard.readText()')
+        expected = json.loads((ROOT / 'examples/dm02.result.json').read_text())['card']['seo_description']
+        self.assertEqual(clipboard, expected)
+
+    def test_commercial_is_above_characteristics_and_both_blocks_copy_exactly(self):
+        self.page.context.grant_permissions(['clipboard-read', 'clipboard-write'])
+        self.page.locator('#show-example').click()
+        expect(self.page.locator('.commercial-section')).to_be_visible()
+        self.assertLess(self.page.locator('.commercial-section').bounding_box()['y'],
+                        self.page.locator('#preview table').bounding_box()['y'])
+        card = json.loads((ROOT / 'examples/dm02.result.json').read_text())['card']
+        self.page.get_by_role('button', name='Копировать Commercial-блок для менеджера', exact=True).click()
+        self.assertEqual(self.page.evaluate('navigator.clipboard.readText()'), card['commercial_block'])
+        self.page.get_by_role('button', name='Копировать Характеристики для карточки', exact=True).click()
+        self.assertEqual(self.page.evaluate('navigator.clipboard.readText()'), '\n'.join(row['name'] + '\t' + row['value'] for row in card['characteristics']))
+
+    def test_enrichment_option_roundtrips_through_json_and_reload(self):
+        self.page.locator('#load-example').click()
+        expect(self.page.locator('#enrich')).to_be_checked()
+        self.page.locator('#enrich').uncheck()
+        self.page.locator('#json-tab').click()
+        self.assertFalse(json.loads(self.page.locator('#json-input').input_value())['enrich'])
+        self.page.reload()
+        self.page.locator('#form-tab').click()
+        expect(self.page.locator('#enrich')).not_to_be_checked()
+        self.page.locator('#generate').click()
+        expect(self.page.locator('#error-banner')).to_contain_text('перехвачен')
+        self.assertFalse(self.requests[0]['enrich'])
+
+    def test_reload_restores_invalid_json_and_previous_card_with_stale_warning(self):
+        self.page.locator('#show-example').click()
+        expect(self.page.locator('#result')).to_be_visible()
+        previous = self.page.locator('#preview').text_content()
+        self.page.locator('[data-input="json"]').click()
+        self.page.locator('#json-input').fill('{"name":')
+        self.page.reload()
+        expect(self.page.locator('#json-input')).to_be_visible()
+        expect(self.page.locator('#json-input')).to_have_value('{"name":')
+        expect(self.page.locator('#preview')).to_have_text(previous)
+        expect(self.page.locator('#stale-banner')).to_be_visible()
+        self.assertEqual(self.requests, [])
+
+    def test_needs_data_keeps_the_previous_card_and_provides_a_next_step(self):
+        self.page.locator('#show-example').click()
+        expect(self.page.locator('#result')).to_be_visible()
+        previous = self.page.locator('#preview').text_content()
+        self.page.route('**/api/generate', lambda route: route.fulfill(json={
+            'status': 'needs_data', 'api_called': False, 'message': 'Добавьте характеристики.',
+            'missing_fields': ['description', 'specs'], 'next_steps': ['Вставьте фрагмент паспорта.']}))
+        self.page.locator('[data-input="json"]').click()
+        self.page.locator('#json-input').fill('{"name":"Прибор"}')
+        self.page.locator('#generate').click()
+        expect(self.page.locator('#needs-data')).to_be_visible()
+        expect(self.page.locator('#result-badge')).to_have_text('Нужны данные')
+        expect(self.page.locator('#preview')).to_have_text(previous)
+        expect(self.page.locator('#stale-banner')).to_be_visible()
+        expect(self.page.locator('#preview')).to_be_hidden()
+        self.page.locator('#previous-summary').click()
+        expect(self.page.locator('#preview')).to_be_visible()
+        self.page.locator('#complete-source').click()
+        expect(self.page.locator('#description')).to_be_focused()
+        self.page.locator('#description').fill('Измеряет температуру. Питание: 24 В.')
+        expect(self.page.locator('#needs-data')).to_be_hidden()
+
+    def test_narrow_screen_and_keyboard_tabs_remain_usable(self):
+        self.page.set_viewport_size({'width': 320, 'height': 850})
+        self.page.locator('#form-tab').focus()
+        self.page.keyboard.press('ArrowRight')
+        expect(self.page.locator('#json-input')).to_be_visible()
+        expect(self.page.locator('#json-tab')).to_be_focused()
+        self.page.keyboard.press('Home')
+        expect(self.page.locator('#name')).to_be_visible()
+        self.assertFalse(self.page.evaluate('document.documentElement.scrollWidth > innerWidth'))
 
 
 if __name__ == '__main__':

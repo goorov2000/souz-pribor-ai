@@ -1,0 +1,454 @@
+{
+  "status": "draft",
+  "card": {
+    "seo_title": "Инфракрасный термометр testo 805i",
+    "seo_description": "Инфракрасный термометр testo 805i предназначен для измерения температуры стен, а также предохранителей и компонентов в системах кондиционирования воздуха. Бесконтактный инфракрасный метод позволяет выполнять измерения без соприкосновения с объектом; прибор рассчитан на задачи, для которых важны указанные назначение и способ измерения.\n\nДиапазон измерения составляет -30 to +250 °C, разрешение — 0.1 °C, оптика — 10:1. Для наведения предусмотрена лазерная маркировка области: круг из 8 точек; также заявлен лазерный круг с дифракционной оптикой. Излучательная способность регулируется в пределах 0.1 to 1.0. Эти параметры помогают соотнести прибор с требуемым диапазоном, детализацией показаний и расстоянием до области измерения.\n\nПри выборе сопоставьте диапазон и разрешение с задачей, а оптику и лазерную маркировку — с размером и расположением измеряемой области. Для работы с результатами предусмотрены передача данных по Bluetooth и приложение testo Smart App; приложение поддерживает iOS и Android с указанными минимальными версиями. Учитывайте рабочую температуру -10 to +50 °C и размеры 140 x 36 x 25 mm при оценке места применения и размещения прибора.",
+    "product_identity": {
+      "name": "Инфракрасный термометр testo 805i",
+      "manufacturer": "Testo"
+    },
+    "enrichment": {
+      "provided": 0,
+      "extracted": 0,
+      "missing": 4,
+      "from_documents": 26
+    },
+    "characteristics": [
+      {
+        "name": "Измеряемая величина",
+        "value": "surface temperature",
+        "source": "web",
+        "quote": "Non-contact IR measurement of surface temperature",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Назначение",
+        "value": "for wall temperatures as well as for fuse and component temperatures in air conditioning systems",
+        "source": "web",
+        "quote": "instrument for wall temperatures as well as for fuse and component temperatures in air conditioning systems",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Метод измерения",
+        "value": "Non-contact IR measurement",
+        "source": "web",
+        "quote": "Non-contact IR measurement",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Тип сенсора",
+        "value": "Infrared",
+        "source": "web",
+        "quote": "Sensor type Infrared",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Диапазон измерения температуры",
+        "value": "-30 to +250 °C",
+        "source": "web",
+        "quote": "-30 to +250 °C",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Погрешность температуры, 0 to +250 °C",
+        "value": "±1.5 °C or ±1.5 % of reading (0 to +250 °C)",
+        "source": "web",
+        "quote": "±1.5 °C or ±1.5 % of reading (0 to +250 °C)",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Погрешность температуры, -20 to -0.1 °C",
+        "value": "±2.0 °C (-20 to -0.1 °C)",
+        "source": "web",
+        "quote": "±2.0 °C (-20 to -0.1 °C)",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Погрешность температуры, -30 to -20.1 °C",
+        "value": "±2.5 °C (-30 to -20.1 °C)",
+        "source": "web",
+        "quote": "±2.5 °C (-30 to -20.1 °C)",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Разрешение",
+        "value": "0.1 °C",
+        "source": "web",
+        "quote": "0.1 °C",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Оптика",
+        "value": "10:1",
+        "source": "web",
+        "quote": "10:1",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Лазерная маркировка",
+        "value": "Diffractive optics (laser circle)",
+        "source": "web",
+        "quote": "Diffractive optics (laser circle)",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Маркировка измерительной области",
+        "value": "8-point laser circle",
+        "source": "web",
+        "quote": "8-point laser circle",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Излучательная способность",
+        "value": "0.1 to 1.0 adjustable",
+        "source": "web",
+        "quote": "0.1 to 1.0 adjustable",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Совместимое приложение",
+        "value": "testo Smart App",
+        "source": "web",
+        "quote": "testo Smart App",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Совместимость с ОС",
+        "value": "For iOS and Android.",
+        "source": "web",
+        "quote": "For iOS and Android.",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Минимальная версия iOS",
+        "value": "requires iOS 11.0 or newer",
+        "source": "web",
+        "quote": "requires iOS 11.0 or newer",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Минимальная версия Android",
+        "value": "Android 6.0 or newer",
+        "source": "web",
+        "quote": "Android 6.0 or newer",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Требования к Bluetooth устройства",
+        "value": "Bluetooth 4.0",
+        "source": "web",
+        "quote": "Bluetooth 4.0",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Температура хранения",
+        "value": "-20 to +60 °C",
+        "source": "web",
+        "quote": "-20 to +60 °C",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Рабочая температура",
+        "value": "-10 to +50 °C",
+        "source": "web",
+        "quote": "-10 to +50 °C",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Тип батареи",
+        "value": "3 micro batteries AAA",
+        "source": "web",
+        "quote": "3 micro batteries AAA",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Время работы от батареи",
+        "value": "30 hrs",
+        "source": "web",
+        "quote": "30 hrs",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Размеры",
+        "value": "140 x 36 x 25 mm",
+        "source": "web",
+        "quote": "140 x 36 x 25 mm",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Передача данных",
+        "value": "Bluetooth",
+        "source": "web",
+        "quote": "measurement values take place by Bluetooth",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Форматы отчётов приложения",
+        "value": "PDF or Excel files",
+        "source": "web",
+        "quote": "directly sent as PDF or Excel files",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Документ: технический лист",
+        "value": "Data sheet",
+        "source": "web",
+        "quote": "Data sheet",
+        "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      },
+      {
+        "name": "Масса",
+        "value": "данных нет",
+        "source": null,
+        "quote": null
+      },
+      {
+        "name": "Степень защиты",
+        "value": "данных нет",
+        "source": null,
+        "quote": null
+      },
+      {
+        "name": "Комплектность",
+        "value": "данных нет",
+        "source": null,
+        "quote": null
+      },
+      {
+        "name": "Сведения о поверке",
+        "value": "данных нет",
+        "source": null,
+        "quote": null
+      }
+    ],
+    "search_queries": [
+      "инфракрасный термометр testo 805i",
+      "testo 805i бесконтактное измерение температуры",
+      "testo 805i диапазон -30 to +250 °C",
+      "термометр testo для температуры стен и компонентов систем кондиционирования"
+    ],
+    "commercial_block": "Подходит специалистам, которым нужно бесконтактно измерять температуру стен, предохранителей и компонентов в системах кондиционирования воздуха. Для выбора задачи сопоставьте диапазон измерения, разрешение и оптику с требуемой областью и расстоянием измерения.",
+    "missing_fields": [
+      "specs.Масса",
+      "specs.Степень защиты",
+      "specs.Комплектность",
+      "specs.Сведения о поверке"
+    ],
+    "warnings": [
+      "Черновик: проверьте смысл, назначение и полноту по паспорту перед публикацией.",
+      "Часть исходных данных отсутствует; свойства не восстанавливались по аналогам.",
+      "Часть найденных сведений исключена: цитаты не подтвердились в доступном документе."
+    ],
+    "research": {
+      "status": "exact_match",
+      "added": 26,
+      "sources": [
+        "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+      ],
+      "warnings": [
+        "Часть найденных сведений исключена: цитаты не подтвердились в доступном документе."
+      ],
+      "conflicts": [],
+      "facts": [
+        {
+          "name": "Измеряемая величина",
+          "value": "surface temperature",
+          "quote": "Non-contact IR measurement of surface temperature",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Назначение",
+          "value": "for wall temperatures as well as for fuse and component temperatures in air conditioning systems",
+          "quote": "instrument for wall temperatures as well as for fuse and component temperatures in air conditioning systems",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Метод измерения",
+          "value": "Non-contact IR measurement",
+          "quote": "Non-contact IR measurement",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Тип сенсора",
+          "value": "Infrared",
+          "quote": "Sensor type Infrared",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Диапазон измерения температуры",
+          "value": "-30 to +250 °C",
+          "quote": "-30 to +250 °C",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Погрешность температуры, 0 to +250 °C",
+          "value": "±1.5 °C or ±1.5 % of reading (0 to +250 °C)",
+          "quote": "±1.5 °C or ±1.5 % of reading (0 to +250 °C)",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Погрешность температуры, -20 to -0.1 °C",
+          "value": "±2.0 °C (-20 to -0.1 °C)",
+          "quote": "±2.0 °C (-20 to -0.1 °C)",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Погрешность температуры, -30 to -20.1 °C",
+          "value": "±2.5 °C (-30 to -20.1 °C)",
+          "quote": "±2.5 °C (-30 to -20.1 °C)",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Разрешение",
+          "value": "0.1 °C",
+          "quote": "0.1 °C",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Оптика",
+          "value": "10:1",
+          "quote": "10:1",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Лазерная маркировка",
+          "value": "Diffractive optics (laser circle)",
+          "quote": "Diffractive optics (laser circle)",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Маркировка измерительной области",
+          "value": "8-point laser circle",
+          "quote": "8-point laser circle",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Излучательная способность",
+          "value": "0.1 to 1.0 adjustable",
+          "quote": "0.1 to 1.0 adjustable",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Совместимое приложение",
+          "value": "testo Smart App",
+          "quote": "testo Smart App",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Совместимость с ОС",
+          "value": "For iOS and Android.",
+          "quote": "For iOS and Android.",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Минимальная версия iOS",
+          "value": "requires iOS 11.0 or newer",
+          "quote": "requires iOS 11.0 or newer",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Минимальная версия Android",
+          "value": "Android 6.0 or newer",
+          "quote": "Android 6.0 or newer",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Требования к Bluetooth устройства",
+          "value": "Bluetooth 4.0",
+          "quote": "Bluetooth 4.0",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Температура хранения",
+          "value": "-20 to +60 °C",
+          "quote": "-20 to +60 °C",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Рабочая температура",
+          "value": "-10 to +50 °C",
+          "quote": "-10 to +50 °C",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Тип батареи",
+          "value": "3 micro batteries AAA",
+          "quote": "3 micro batteries AAA",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Время работы от батареи",
+          "value": "30 hrs",
+          "quote": "30 hrs",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Размеры",
+          "value": "140 x 36 x 25 mm",
+          "quote": "140 x 36 x 25 mm",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Передача данных",
+          "value": "Bluetooth",
+          "quote": "measurement values take place by Bluetooth",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Форматы отчётов приложения",
+          "value": "PDF or Excel files",
+          "quote": "directly sent as PDF or Excel files",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        },
+        {
+          "name": "Документ: технический лист",
+          "value": "Data sheet",
+          "quote": "Data sheet",
+          "source_url": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf"
+        }
+      ],
+      "identity_source": "https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf",
+      "identity_quote": "testo 805i"
+    }
+  },
+  "counts": {
+    "seo_title": 33,
+    "seo_description": 1163
+  },
+  "metadata": {
+    "provider": "OpenAI",
+    "model": "gpt-6-luna",
+    "attempts": 1,
+    "usage": {
+      "input_tokens": 32385,
+      "output_tokens": 3220,
+      "total_tokens": 35605
+    },
+    "verification": "structure-and-source-tokens; human review required",
+    "provenance": {
+      "kind": "live-api",
+      "generated_at": "2026-11-03T02:45:34.050435+00:00",
+      "input": "testo805i-enriched.input.json",
+      "source_sha256": {
+        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "cards.py": "3ba8d77174a27b8efd481d77660ec897d08cb3745cdc7a1a26492503f3cb4d15",
+        "config.py": "a216de074fcaeaa2d663d8b1134336195dbb1d96a9580b0975411a61d3a48b61",
+        "enrichment.py": "308444f147dff7c58f368c70dc8ebdf916a9a03c210302c742bd239f17e7f84a",
+        "grounding.py": "603e24a78f7de1929367a081f09601aa62e53c1e5a46e6edad9d504e89b014fa",
+        "main.py": "338560e18e2e1d6485f3329ec344e359f329aa6c251acc869869b85f0c1e55c6",
+        "models.py": "c88ad5744c9e8e1736e314fd53c1218156df1ecc30e691d08a9fc9c8f4a3cd7e",
+        "prompts.py": "e9d114848a3c5355c992bc42fdb588a12a58cf2992b898a831b4f884951d3c30",
+        "provider.py": "312fa56de49e6745166f486cde3cfd96b01e6ebdf9d70067d86d2bb4d54a9b35"
+      },
+      "origin": "Пустая входная таблица; поиск точной модели в документации, проверка цитат, полная таблица и краткое SEO-описание.",
+      "export_postprocessing": {
+        "reason": "Документация уже найдена; не запрашивать описание повторно. Значения и тексты LLM не изменены.",
+        "cards_sha256": "24801af4d28ae867b58ccafc566c905d42c5890e16029a32b9609b776641f856"
+      }
+    }
+  },
+  "exports": {
+    "json": "{\n  \"seo_title\": \"Инфракрасный термометр testo 805i\",\n  \"seo_description\": \"Инфракрасный термометр testo 805i предназначен для измерения температуры стен, а также предохранителей и компонентов в системах кондиционирования воздуха. Бесконтактный инфракрасный метод позволяет выполнять измерения без соприкосновения с объектом; прибор рассчитан на задачи, для которых важны указанные назначение и способ измерения.\\n\\nДиапазон измерения составляет -30 to +250 °C, разрешение — 0.1 °C, оптика — 10:1. Для наведения предусмотрена лазерная маркировка области: круг из 8 точек; также заявлен лазерный круг с дифракционной оптикой. Излучательная способность регулируется в пределах 0.1 to 1.0. Эти параметры помогают соотнести прибор с требуемым диапазоном, детализацией показаний и расстоянием до области измерения.\\n\\nПри выборе сопоставьте диапазон и разрешение с задачей, а оптику и лазерную маркировку — с размером и расположением измеряемой области. Для работы с результатами предусмотрены передача данных по Bluetooth и приложение testo Smart App; приложение поддерживает iOS и Android с указанными минимальными версиями. Учитывайте рабочую температуру -10 to +50 °C и размеры 140 x 36 x 25 mm при оценке места применения и размещения прибора.\",\n  \"product_identity\": {\n    \"name\": \"Инфракрасный термометр testo 805i\",\n    \"manufacturer\": \"Testo\"\n  },\n  \"enrichment\": {\n    \"provided\": 0,\n    \"extracted\": 0,\n    \"missing\": 4,\n    \"from_documents\": 26\n  },\n  \"characteristics\": [\n    {\n      \"name\": \"Измеряемая величина\",\n      \"value\": \"surface temperature\",\n      \"source\": \"web\",\n      \"quote\": \"Non-contact IR measurement of surface temperature\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Назначение\",\n      \"value\": \"for wall temperatures as well as for fuse and component temperatures in air conditioning systems\",\n      \"source\": \"web\",\n      \"quote\": \"instrument for wall temperatures as well as for fuse and component temperatures in air conditioning systems\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Метод измерения\",\n      \"value\": \"Non-contact IR measurement\",\n      \"source\": \"web\",\n      \"quote\": \"Non-contact IR measurement\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Тип сенсора\",\n      \"value\": \"Infrared\",\n      \"source\": \"web\",\n      \"quote\": \"Sensor type Infrared\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Диапазон измерения температуры\",\n      \"value\": \"-30 to +250 °C\",\n      \"source\": \"web\",\n      \"quote\": \"-30 to +250 °C\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Погрешность температуры, 0 to +250 °C\",\n      \"value\": \"±1.5 °C or ±1.5 % of reading (0 to +250 °C)\",\n      \"source\": \"web\",\n      \"quote\": \"±1.5 °C or ±1.5 % of reading (0 to +250 °C)\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Погрешность температуры, -20 to -0.1 °C\",\n      \"value\": \"±2.0 °C (-20 to -0.1 °C)\",\n      \"source\": \"web\",\n      \"quote\": \"±2.0 °C (-20 to -0.1 °C)\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Погрешность температуры, -30 to -20.1 °C\",\n      \"value\": \"±2.5 °C (-30 to -20.1 °C)\",\n      \"source\": \"web\",\n      \"quote\": \"±2.5 °C (-30 to -20.1 °C)\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Разрешение\",\n      \"value\": \"0.1 °C\",\n      \"source\": \"web\",\n      \"quote\": \"0.1 °C\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Оптика\",\n      \"value\": \"10:1\",\n      \"source\": \"web\",\n      \"quote\": \"10:1\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Лазерная маркировка\",\n      \"value\": \"Diffractive optics (laser circle)\",\n      \"source\": \"web\",\n      \"quote\": \"Diffractive optics (laser circle)\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Маркировка измерительной области\",\n      \"value\": \"8-point laser circle\",\n      \"source\": \"web\",\n      \"quote\": \"8-point laser circle\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Излучательная способность\",\n      \"value\": \"0.1 to 1.0 adjustable\",\n      \"source\": \"web\",\n      \"quote\": \"0.1 to 1.0 adjustable\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Совместимое приложение\",\n      \"value\": \"testo Smart App\",\n      \"source\": \"web\",\n      \"quote\": \"testo Smart App\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Совместимость с ОС\",\n      \"value\": \"For iOS and Android.\",\n      \"source\": \"web\",\n      \"quote\": \"For iOS and Android.\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Минимальная версия iOS\",\n      \"value\": \"requires iOS 11.0 or newer\",\n      \"source\": \"web\",\n      \"quote\": \"requires iOS 11.0 or newer\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Минимальная версия Android\",\n      \"value\": \"Android 6.0 or newer\",\n      \"source\": \"web\",\n      \"quote\": \"Android 6.0 or newer\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Требования к Bluetooth устройства\",\n      \"value\": \"Bluetooth 4.0\",\n      \"source\": \"web\",\n      \"quote\": \"Bluetooth 4.0\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Температура хранения\",\n      \"value\": \"-20 to +60 °C\",\n      \"source\": \"web\",\n      \"quote\": \"-20 to +60 °C\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Рабочая температура\",\n      \"value\": \"-10 to +50 °C\",\n      \"source\": \"web\",\n      \"quote\": \"-10 to +50 °C\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Тип батареи\",\n      \"value\": \"3 micro batteries AAA\",\n      \"source\": \"web\",\n      \"quote\": \"3 micro batteries AAA\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Время работы от батареи\",\n      \"value\": \"30 hrs\",\n      \"source\": \"web\",\n      \"quote\": \"30 hrs\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Размеры\",\n      \"value\": \"140 x 36 x 25 mm\",\n      \"source\": \"web\",\n      \"quote\": \"140 x 36 x 25 mm\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Передача данных\",\n      \"value\": \"Bluetooth\",\n      \"source\": \"web\",\n      \"quote\": \"measurement values take place by Bluetooth\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Форматы отчётов приложения\",\n      \"value\": \"PDF or Excel files\",\n      \"source\": \"web\",\n      \"quote\": \"directly sent as PDF or Excel files\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Документ: технический лист\",\n      \"value\": \"Data sheet\",\n      \"source\": \"web\",\n      \"quote\": \"Data sheet\",\n      \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    },\n    {\n      \"name\": \"Масса\",\n      \"value\": \"данных нет\",\n      \"source\": null,\n      \"quote\": null\n    },\n    {\n      \"name\": \"Степень защиты\",\n      \"value\": \"данных нет\",\n      \"source\": null,\n      \"quote\": null\n    },\n    {\n      \"name\": \"Комплектность\",\n      \"value\": \"данных нет\",\n      \"source\": null,\n      \"quote\": null\n    },\n    {\n      \"name\": \"Сведения о поверке\",\n      \"value\": \"данных нет\",\n      \"source\": null,\n      \"quote\": null\n    }\n  ],\n  \"search_queries\": [\n    \"инфракрасный термометр testo 805i\",\n    \"testo 805i бесконтактное измерение температуры\",\n    \"testo 805i диапазон -30 to +250 °C\",\n    \"термометр testo для температуры стен и компонентов систем кондиционирования\"\n  ],\n  \"commercial_block\": \"Подходит специалистам, которым нужно бесконтактно измерять температуру стен, предохранителей и компонентов в системах кондиционирования воздуха. Для выбора задачи сопоставьте диапазон измерения, разрешение и оптику с требуемой областью и расстоянием измерения.\",\n  \"missing_fields\": [\n    \"specs.Масса\",\n    \"specs.Степень защиты\",\n    \"specs.Комплектность\",\n    \"specs.Сведения о поверке\"\n  ],\n  \"warnings\": [\n    \"Черновик: проверьте смысл, назначение и полноту по паспорту перед публикацией.\",\n    \"Часть исходных данных отсутствует; свойства не восстанавливались по аналогам.\",\n    \"Часть найденных сведений исключена: цитаты не подтвердились в доступном документе.\"\n  ],\n  \"research\": {\n    \"status\": \"exact_match\",\n    \"added\": 26,\n    \"sources\": [\n      \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n    ],\n    \"warnings\": [\n      \"Часть найденных сведений исключена: цитаты не подтвердились в доступном документе.\"\n    ],\n    \"conflicts\": [],\n    \"facts\": [\n      {\n        \"name\": \"Измеряемая величина\",\n        \"value\": \"surface temperature\",\n        \"quote\": \"Non-contact IR measurement of surface temperature\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Назначение\",\n        \"value\": \"for wall temperatures as well as for fuse and component temperatures in air conditioning systems\",\n        \"quote\": \"instrument for wall temperatures as well as for fuse and component temperatures in air conditioning systems\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Метод измерения\",\n        \"value\": \"Non-contact IR measurement\",\n        \"quote\": \"Non-contact IR measurement\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Тип сенсора\",\n        \"value\": \"Infrared\",\n        \"quote\": \"Sensor type Infrared\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Диапазон измерения температуры\",\n        \"value\": \"-30 to +250 °C\",\n        \"quote\": \"-30 to +250 °C\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Погрешность температуры, 0 to +250 °C\",\n        \"value\": \"±1.5 °C or ±1.5 % of reading (0 to +250 °C)\",\n        \"quote\": \"±1.5 °C or ±1.5 % of reading (0 to +250 °C)\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Погрешность температуры, -20 to -0.1 °C\",\n        \"value\": \"±2.0 °C (-20 to -0.1 °C)\",\n        \"quote\": \"±2.0 °C (-20 to -0.1 °C)\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Погрешность температуры, -30 to -20.1 °C\",\n        \"value\": \"±2.5 °C (-30 to -20.1 °C)\",\n        \"quote\": \"±2.5 °C (-30 to -20.1 °C)\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Разрешение\",\n        \"value\": \"0.1 °C\",\n        \"quote\": \"0.1 °C\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Оптика\",\n        \"value\": \"10:1\",\n        \"quote\": \"10:1\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Лазерная маркировка\",\n        \"value\": \"Diffractive optics (laser circle)\",\n        \"quote\": \"Diffractive optics (laser circle)\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Маркировка измерительной области\",\n        \"value\": \"8-point laser circle\",\n        \"quote\": \"8-point laser circle\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Излучательная способность\",\n        \"value\": \"0.1 to 1.0 adjustable\",\n        \"quote\": \"0.1 to 1.0 adjustable\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Совместимое приложение\",\n        \"value\": \"testo Smart App\",\n        \"quote\": \"testo Smart App\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Совместимость с ОС\",\n        \"value\": \"For iOS and Android.\",\n        \"quote\": \"For iOS and Android.\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Минимальная версия iOS\",\n        \"value\": \"requires iOS 11.0 or newer\",\n        \"quote\": \"requires iOS 11.0 or newer\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Минимальная версия Android\",\n        \"value\": \"Android 6.0 or newer\",\n        \"quote\": \"Android 6.0 or newer\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Требования к Bluetooth устройства\",\n        \"value\": \"Bluetooth 4.0\",\n        \"quote\": \"Bluetooth 4.0\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Температура хранения\",\n        \"value\": \"-20 to +60 °C\",\n        \"quote\": \"-20 to +60 °C\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Рабочая температура\",\n        \"value\": \"-10 to +50 °C\",\n        \"quote\": \"-10 to +50 °C\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Тип батареи\",\n        \"value\": \"3 micro batteries AAA\",\n        \"quote\": \"3 micro batteries AAA\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Время работы от батареи\",\n        \"value\": \"30 hrs\",\n        \"quote\": \"30 hrs\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Размеры\",\n        \"value\": \"140 x 36 x 25 mm\",\n        \"quote\": \"140 x 36 x 25 mm\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Передача данных\",\n        \"value\": \"Bluetooth\",\n        \"quote\": \"measurement values take place by Bluetooth\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Форматы отчётов приложения\",\n        \"value\": \"PDF or Excel files\",\n        \"quote\": \"directly sent as PDF or Excel files\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      },\n      {\n        \"name\": \"Документ: технический лист\",\n        \"value\": \"Data sheet\",\n        \"quote\": \"Data sheet\",\n        \"source_url\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\"\n      }\n    ],\n    \"identity_source\": \"https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\",\n    \"identity_quote\": \"testo 805i\"\n  }\n}",
+    "markdown": "# Инфракрасный термометр testo 805i\n\n> Требует проверки человеком перед публикацией.\n\n## Commercial-блок для менеджера\n\nПодходит специалистам, которым нужно бесконтактно измерять температуру стен, предохранителей и компонентов в системах кондиционирования воздуха. Для выбора задачи сопоставьте диапазон измерения, разрешение и оптику с требуемой областью и расстоянием измерения.\n\n## SEO-описание\n\nИнфракрасный термометр testo 805i предназначен для измерения температуры стен, а также предохранителей и компонентов в системах кондиционирования воздуха. Бесконтактный инфракрасный метод позволяет выполнять измерения без соприкосновения с объектом; прибор рассчитан на задачи, для которых важны указанные назначение и способ измерения.\n\nДиапазон измерения составляет -30 to +250 °C, разрешение — 0.1 °C, оптика — 10:1. Для наведения предусмотрена лазерная маркировка области: круг из 8 точек; также заявлен лазерный круг с дифракционной оптикой. Излучательная способность регулируется в пределах 0.1 to 1.0. Эти параметры помогают соотнести прибор с требуемым диапазоном, детализацией показаний и расстоянием до области измерения.\n\nПри выборе сопоставьте диапазон и разрешение с задачей, а оптику и лазерную маркировку — с размером и расположением измеряемой области. Для работы с результатами предусмотрены передача данных по Bluetooth и приложение testo Smart App; приложение поддерживает iOS и Android с указанными минимальными версиями. Учитывайте рабочую температуру -10 to +50 °C и размеры 140 x 36 x 25 mm при оценке места применения и размещения прибора.\n\n## Товар\n\nНазвание: Инфракрасный термометр testo 805i\nПроизводитель: Testo\n\n## Характеристики для карточки\n\n| Параметр | Значение | Источник |\n| --- | --- | --- |\n| Измеряемая величина | surface temperature | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — Non-contact IR measurement of surface temperature |\n| Назначение | for wall temperatures as well as for fuse and component temperatures in air conditioning systems | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — instrument for wall temperatures as well as for fuse and component temperatures in air conditioning systems |\n| Метод измерения | Non-contact IR measurement | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — Non-contact IR measurement |\n| Тип сенсора | Infrared | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — Sensor type Infrared |\n| Диапазон измерения температуры | -30 to +250 °C | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — -30 to +250 °C |\n| Погрешность температуры, 0 to +250 °C | ±1.5 °C or ±1.5 % of reading (0 to +250 °C) | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — ±1.5 °C or ±1.5 % of reading (0 to +250 °C) |\n| Погрешность температуры, -20 to -0.1 °C | ±2.0 °C (-20 to -0.1 °C) | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — ±2.0 °C (-20 to -0.1 °C) |\n| Погрешность температуры, -30 to -20.1 °C | ±2.5 °C (-30 to -20.1 °C) | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — ±2.5 °C (-30 to -20.1 °C) |\n| Разрешение | 0.1 °C | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — 0.1 °C |\n| Оптика | 10:1 | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — 10:1 |\n| Лазерная маркировка | Diffractive optics (laser circle) | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — Diffractive optics (laser circle) |\n| Маркировка измерительной области | 8-point laser circle | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — 8-point laser circle |\n| Излучательная способность | 0.1 to 1.0 adjustable | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — 0.1 to 1.0 adjustable |\n| Совместимое приложение | testo Smart App | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — testo Smart App |\n| Совместимость с ОС | For iOS and Android. | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — For iOS and Android. |\n| Минимальная версия iOS | requires iOS 11.0 or newer | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — requires iOS 11.0 or newer |\n| Минимальная версия Android | Android 6.0 or newer | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — Android 6.0 or newer |\n| Требования к Bluetooth устройства | Bluetooth 4.0 | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — Bluetooth 4.0 |\n| Температура хранения | -20 to +60 °C | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — -20 to +60 °C |\n| Рабочая температура | -10 to +50 °C | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — -10 to +50 °C |\n| Тип батареи | 3 micro batteries AAA | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — 3 micro batteries AAA |\n| Время работы от батареи | 30 hrs | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — 30 hrs |\n| Размеры | 140 x 36 x 25 mm | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — 140 x 36 x 25 mm |\n| Передача данных | Bluetooth | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — measurement values take place by Bluetooth |\n| Форматы отчётов приложения | PDF or Excel files | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — directly sent as PDF or Excel files |\n| Документ: технический лист | Data sheet | документация: https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf — Data sheet |\n| Масса | данных нет | нет в исходных материалах |\n| Степень защиты | данных нет | нет в исходных материалах |\n| Комплектность | данных нет | нет в исходных материалах |\n| Сведения о поверке | данных нет | нет в исходных материалах |\n\n## Источники обогащения\n\n- https://static-int.testo.com/media/a9/2d/e86fbd1ad5ec/testo-805i-Data-Sheet.pdf\n- Часть найденных сведений исключена: цитаты не подтвердились в доступном документе.\n\n## Поисковые запросы\n\n- инфракрасный термометр testo 805i\n- testo 805i бесконтактное измерение температуры\n- testo 805i диапазон -30 to +250 °C\n- термометр testo для температуры стен и компонентов систем кондиционирования\n\n## Требует уточнения\n\n- specs.Масса\n- specs.Степень защиты\n- specs.Комплектность\n- specs.Сведения о поверке\n- Черновик: проверьте смысл, назначение и полноту по паспорту перед публикацией.\n- Часть исходных данных отсутствует; свойства не восстанавливались по аналогам.\n- Часть найденных сведений исключена: цитаты не подтвердились в доступном документе.\n"
+  }
+}

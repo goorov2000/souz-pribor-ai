@@ -23,10 +23,16 @@ async def request_draft(product, settings, transport=None, feedback=None):
         'model': settings.model,
         'input': messages,
         'reasoning': {'effort': 'none'},
-        'max_output_tokens': 3000,
+        'max_output_tokens': 6000,
         'store': False,
         'text': {'format': {'type': 'json_schema', 'name': 'product_card', 'strict': True, 'schema': ModelDraft.model_json_schema()}},
     }
+    output, usage, _ = await request_output(body, settings, transport)
+    return output, usage
+
+
+async def request_output(body, settings, transport=None):
+    """Shared HTTP/error handling; never includes raw provider errors or credentials."""
     try:
         async with httpx.AsyncClient(timeout=settings.timeout, transport=transport) as client:
             response = await client.post('https://api.openai.com/v1/responses', json=body, headers={'Authorization': 'Bearer ' + settings.api_key})
@@ -57,6 +63,6 @@ async def request_draft(product, settings, transport=None, feedback=None):
         if not output:
             raise GenerationError('empty_response', 'Модель вернула пустой ответ. Карточка не сформирована.')
         usage = data.get('usage') or {}
-        return output, {key: usage.get(key, 0) if type(usage.get(key, 0)) is int and usage.get(key, 0) >= 0 else 0 for key in ('input_tokens', 'output_tokens', 'total_tokens')}
+        return output, {key: usage.get(key, 0) if type(usage.get(key, 0)) is int and usage.get(key, 0) >= 0 else 0 for key in ('input_tokens', 'output_tokens', 'total_tokens')}, data
     except (ValueError, TypeError, AttributeError):
         raise GenerationError('invalid_response', 'Сервис генерации вернул некорректный ответ. Повторите позже.') from None

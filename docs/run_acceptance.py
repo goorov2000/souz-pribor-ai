@@ -90,6 +90,12 @@ def main():
 
     class RecordedTransport(httpx.AsyncBaseTransport):
         async def handle_async_request(self, request):
+            if request.method == 'GET' and request.url.host != 'api.openai.com':
+                async with httpx.AsyncHTTPTransport() as transport:
+                    response = await transport.handle_async_request(request)
+                    content = await response.aread()
+                return httpx.Response(response.status_code, headers={key: value for key, value in response.headers.items()
+                                      if key.lower() not in ('content-encoding', 'content-length')}, content=content, request=request)
             if replay:
                 saved = replay.pop(0)
                 attempt = {'number': saved['number'], 'request': json.loads(request.content),
@@ -148,11 +154,11 @@ def main():
                               'body': body, 'review': 'not-reviewed'}
                     filename = f"{case['id']}-{repetition}"
                     write_json(phase / (filename + '.json'), record)
-                    if response.status_code == 200:
+                    if response.status_code == 200 and 'exports' in body:
                         (phase / (filename + '.md')).write_text(body['exports']['markdown'])
                     records.append({key: record[key] for key in ('case', 'repetition', 'http_status', 'seconds', 'request_count', 'review')})
                     write_json(phase / 'summary.json', records)
-                    outcome = body.get('error', {}).get('code', 'card-needs-review')
+                    outcome = body.get('error', {}).get('code', body.get('status', 'card-needs-review'))
                     print(f"{filename}: HTTP {response.status_code}, {outcome}, {record['seconds']}s, new calls={record['new_request_count']}", flush=True)
                     if outcome == 'acceptance_budget':
                         return 1

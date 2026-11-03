@@ -109,6 +109,24 @@ class SavedExamplesTests(BrowserCase):
         self.open_saved()
         expect(self.page.locator('#preview')).to_contain_text('0–1,6 МПа')
         expect(self.page.locator('#saved-banner')).to_be_visible()
+        # A cold product snapshot must include the local Cyrillic and Latin fonts.
+        fonts = self.page.evaluate("""async () => {
+            await document.fonts.ready;
+            return [...document.fonts].filter(face => face.family === 'Inter').map(face => face.status);
+        }""")
+        self.assertEqual(fonts, ['loaded', 'loaded'])
+        logo = self.page.locator('.brand img').evaluate('(image) => image.complete && image.naturalWidth > 0')
+        self.assertTrue(logo, 'The product snapshot must include the company SVG logo')
+
+    def test_name_only_requests_source_without_api_key(self):
+        self.page.get_by_label('Название прибора').fill('Прибор')
+        self.page.locator('#generate').click()
+        expect(self.page.locator('#needs-data')).to_be_visible()
+        expect(self.page.locator('#needs-data-meta')).to_contain_text('Модель не вызывалась')
+        expect(self.page.locator('#result')).to_be_hidden()
+        expect(self.page.locator('#error-banner')).to_be_hidden()
+        self.page.locator('#complete-source').click()
+        expect(self.page.locator('#description')).to_be_focused()
 
     def test_real_example_and_download_without_api_key(self):
         expect(self.page.locator('#config-status')).to_contain_text('OPENAI_API_KEY')
@@ -168,6 +186,17 @@ class GenerationTests(BrowserCase):
         content = Path(pending.value.path()).read_text()
         self.assertIn('0–1,6 МПа', content)
         self.assertIn('\n\n', content)
+
+    def test_document_enrichment_is_visible_and_exported_with_its_source(self):
+        self.generate()
+        expect(self.page.locator('#preview')).to_contain_text('Материал корпуса')
+        expect(self.page.locator('#preview')).to_contain_text('Из документации: 1')
+        expect(self.page.locator('.commercial-section')).to_be_visible()
+        self.page.get_by_role('tab', name='JSON', exact=True).last.click()
+        card = json.loads(self.page.locator('#json-output').text_content())
+        fact = next(row for row in card['characteristics'] if row['name'] == 'Материал корпуса')
+        self.assertEqual(fact['source'], 'web')
+        self.assertEqual(fact['source_url'], 'https://manufacturer.example/dm02')
 
     def test_provider_error_preserves_work_and_allows_retry(self):
         self.generate()

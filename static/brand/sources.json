@@ -1,0 +1,23 @@
+{
+  "logo_source": "logo.svg (provided by user)",
+  "logo_sha256": "69ad7c2b2d126ca5899c6d33978f4bb085432e2ac20b291652bf7a84cfc02df8",
+  "site_source": "СОЮЗ-ПРИБОР — КИПиА и промышленная автоматизация _ купить с доставкой по РФ.html",
+  "site_url": "https://www.souz-pribor.ru/",
+  "css_colors": {
+    "blue": "#353c75",
+    "blue-light": "#747BB3",
+    "red": "#c8223f",
+    "red-light": "#E2425C",
+    "grey-text": "#6E6E6E",
+    "grey1": "#EFEFEF",
+    "grey2": "#F7F7F7",
+    "grey3": "#d9d9d9"
+  },
+  "logo_colors": [
+    "#30367A",
+    "#C4203C",
+    "#353C75"
+  ],
+  "logo_modified": false,
+  "theme": "light, explicitly selected by user"
+}
